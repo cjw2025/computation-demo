@@ -91,4 +91,23 @@ public class CalculatorTest {
 		});
 		System.out.println("[After Each] Finished Test #" + testCounter + ": divide_byZero()");
 	}
+	
+	// Task 5: divide() method - Positive test cases
+	@ParameterizedTest
+	@CsvSource({
+	    "100, 2, 50",
+	    "100, -2, -50",
+	    "-100, 2, -50",
+	    "-100, -2, 50",
+	    "0, 5, 0"
+	})
+	void testDivide(int input1, int input2, int expected) {
+	    System.out.println("[Before Each] Starting Test #" + testCounter + ": \"" + input1 + "\" / \"" + input2
+	            + "\" = \"" + expected + "\"");
+	    int result = calculator.divide(input1, input2);
+	    assertEquals(expected, result);
+	    System.out.println("[After Each] Finished Test #" + testCounter + ": \"" + input1 + "\" / \"" + input2
+	            + "\" = \"" + expected + "\"");
+	}
+	
 }
